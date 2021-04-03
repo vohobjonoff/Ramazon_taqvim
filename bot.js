@@ -20,8 +20,8 @@ const orderScene = new WizardScene(
         console.log("started");
 
         ctx.reply(
-            `Salom ${ctx.from.first_name}, tilni tanlang:\nПривет ${ctx.from.first_name}, выберите язык:`,
-            Markup.keyboard([["O'zbek", "Pусский"]])
+            `Assalomu alaykum ${ctx.from.first_name}, iltimos kerakli bo'limni tanlang:`,
+            Markup.keyboard([["Ramazon taqvimi", "Namoz vaqtlari"]])
                 .oneTime()
                 .resize()
                 .extra()
@@ -31,41 +31,60 @@ const orderScene = new WizardScene(
         return ctx.wizard.next();
     },
     (ctx) => {
-        if (!ctx.wizard.state.language) {
-            console.log("Language");
-            let language = ctx.message.text;
-            if (language == "O'zbek") language = "uz";
-            else if (language == "Pусский") language = "ru";
-            else {
-                ctx.reply(
-                    `${localization.option_error.uz}\n${localization.option_error.ru}`
-                );
-                ctx.wizard.back();
-                return ctx.wizard.steps[ctx.wizard.cursor](ctx);
-            }
 
-            ctx.wizard.state.language = language;
-        }
+        // let language = ctx.message.text;
+        // console.log(language);
+        // if (language == "Ramazon taqvimi") language = "uz";
+
+        // if (!ctx.wizard.state.language) {
+        //     else {
+        //         ctx.reply(
+        //             `${localization.option_error.uz}\n${localization.option_error.ru}`
+        //         );
+        //         ctx.wizard.back();
+        //         return ctx.wizard.steps[ctx.wizard.cursor](ctx);
+        //     }
+
+        //     ctx.wizard.state.language = language;
+        // }
 
         ctx.reply(
-            localization.phone[ctx.wizard.state.language],
-            Extra.markup((markup) => {
-                return markup
-                    .resize()
-                    .keyboard([
-                        markup.contactRequestButton(
-                            localization.my_number[ctx.wizard.state.language]
-                        ),
-                    ]);
-            })
+            localization.category[ctx.wizard.state.language],
+            Markup.inlineKeyboard(
+                [
+                    Markup.callbackButton(`Toshkent shahri`, `Toshkent`),
+                    Markup.callbackButton(`Andijon viloyati`, 'Andijon'),
+                    Markup.callbackButton(`Farg'ona viloyati`, 'Jizzax'),
+                    Markup.callbackButton(`Namangan viloyati`, 'Qashqadaryo'),
+                    Markup.callbackButton(`Sirdaryo viloyati`, 'Buxoro'),
+                    Markup.callbackButton(`Jizzax viloyati`, 'Xorazm'),
+                    Markup.callbackButton(`Samarqand viloyati`, 'Namangan'),
+
+                    Markup.callbackButton(`Samarqand viloyati`, `Andijon`),
+                    Markup.callbackButton(`Qashqadaryo viloyati`, 'Namangan'),
+                    Markup.callbackButton(`Surxondaryo viloyati`, 'Jizzax'),
+                    Markup.callbackButton(`Buxoro viloyati`, 'Qashqadaryo'),
+                    Markup.callbackButton(`Navoiy viloyati`, 'Buxoro'),
+                    Markup.callbackButton(`Xorazm viloyati`, 'Xorazm'),
+                    Markup.callbackButton(`Nukus viloyati`, 'Namangan'),
+                    // [localization.books[ctx.wizard.state.language]],
+                    // [localization.videos[ctx.wizard.state.language]],
+                ],
+                {
+                    columns: 2
+                })
+                .oneTime()
+                .resize()
+                .extra()
         );
 
         // next stage
         return ctx.wizard.next();
     },
+
     (ctx) => {
         if (!ctx.wizard.state.phone) {
-            console.log("CONTACT");
+            console.log(ctx.wizard.state);
             if (ctx.message.contact)
                 ctx.wizard.state.phone = ctx.message.contact.phone_number;
             else {
@@ -81,16 +100,7 @@ const orderScene = new WizardScene(
             }
         }
 
-        ctx.reply(
-            localization.category[ctx.wizard.state.language],
-            Markup.keyboard([
-                [localization.books[ctx.wizard.state.language]],
-                [localization.videos[ctx.wizard.state.language]],
-            ])
-                .oneTime()
-                .resize()
-                .extra()
-        );
+
 
         // next stage
         return ctx.wizard.next();
@@ -184,8 +194,7 @@ const orderScene = new WizardScene(
                 reply_markup: { remove_keyboard: true },
             });
             ctx.reply(
-                `${ctx.from.first_name}, ${
-                    localization.again[ctx.wizard.state.language]
+                `${ctx.from.first_name}, ${localization.again[ctx.wizard.state.language]
                 }`
             );
         } else {
@@ -384,5 +393,6 @@ bot.command("test", (ctx) => {
 bot.on("message", (ctx) => {
     ctx.reply(`${localization.start.uz}\n${localization.start.ru}`);
 });
+
 
 bot.launch();
