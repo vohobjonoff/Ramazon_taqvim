@@ -1,20 +1,17 @@
 const Telegraf = require("telegraf");
 const Markup = require("telegraf/markup");
-const Stage = require("telegraf/stage");
-const session = require("telegraf/session");
-const WizardScene = require("telegraf/scenes/wizard");
-const Extra = require("telegraf/extra");
-const axios = require('axios')
-const localization = require("./localization.json");
 
 require("dotenv/config");
 
 const bot = new Telegraf(process.env.TOKEN);
 
 bot.command("start", async (ctx) => {
+    console.log('bot ishga tushdi')
+    const user = ctx.message.from.username ? ctx.message.from.username : ctx.message.from.first_name
+    console.log(user)
     ctx.reply(
-        `Assalomu alaykum ${ctx.message.chat.first_name}`,
-        Markup.keyboard([[`Ramazon taqvimi`, 'namoz']])
+        `Assalomu alaykum ${ctx.message.from.first_name}`,
+        Markup.keyboard([[`Ramazon taqvimi`]])
             .oneTime()
             .resize()
             .extra()
@@ -34,21 +31,64 @@ bot.hears("Ramazon taqvimi", async (ctx) => {
             [`Navoiy viloyati`, `Xorazm viloyati`],
             [`Nukus viloyati`]
         ])
+            // Markup.keyboard([
+            //     Markup.callbackButton(['Add', 'addAction'])
+            // ])
             .oneTime()
             .resize()
             .extra()
     );
 });
 
-bot.hears('Toshkent shahri', (ctx, next) => {
-    return   ctx.replyWithPhoto('https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg')
-})
-bot.hears('Andijon viloyati', (ctx, next) => {
-    return ctx.reply('askldfjaklsdf').then(() => next())
-})
-bot.hears('Buxoro', (ctx, next) => {
-    return ctx.reply('123124124').then(() => next())
+bot.action('addAction', (ctx) => ctx.reply('klasdjf'));
+
+
+bot.hears(`Toshkent shahri`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Toshkent.png' }, { caption: `Toshkent shahri` })
 })
 
+bot.hears(`Andijon viloyati`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Andijon.png' }, { caption: `Andijon viloyati` })
+})
+
+bot.hears(`Farg'ona viloyati`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: `./images/Fargona.png` }, { caption: `Farg'ona viloyati` })
+})
+
+bot.hears(`Namangan viloyati`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Namangan.png' }, { caption: `Namangan viloyati` })
+})
+
+bot.hears(`Sirdaryo viloyati`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Sirdaryo.png' }, { caption: `Sirdaryo viloyati` })
+})
+
+bot.hears(`Jizzax viloyati`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Jizzax.png' }, { caption: `Jizzax viloyati` })
+})
+
+bot.hears(`Samarqand viloyati`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Samarqand.png' }, { caption: `Samarqand viloyati` })
+})
+
+bot.hears(`Qashqadaryo viloyati`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Qashqadaryo.png' }, { caption: `Qashqadaryo viloyati` })
+})
+
+bot.hears(`Buxoro viloyati`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Buxoro.png' }, { caption: `Buxoro viloyati` })
+})
+
+bot.hears(`Navoiy viloyati`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Navoiy.png' }, { caption: `Navoiy viloyati` })
+})
+
+bot.hears(`Xorazm viloyati`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Xorazm.png' }, { caption: `Xorazm viloyati` })
+})
+
+bot.hears(`Nukus viloyati`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Nukus.png' }, { caption: `Nukus viloyati` })
+})
 
 bot.launch()

@@ -5,7 +5,7 @@ const session = require("telegraf/session");
 const WizardScene = require("telegraf/scenes/wizard");
 const Extra = require("telegraf/extra");
 const axios = require('axios')
-const localization = require("./localization.json");
+const localization = require("../localization.json");
 
 require("dotenv/config");
 
