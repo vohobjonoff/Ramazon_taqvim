@@ -31,17 +31,11 @@ bot.hears("Ramazon taqvimi", async (ctx) => {
             [`Navoiy viloyati`, `Xorazm viloyati`],
             [`Nukus viloyati`]
         ])
-            // Markup.keyboard([
-            //     Markup.callbackButton(['Add', 'addAction'])
-            // ])
             .oneTime()
             .resize()
             .extra()
     );
 });
-
-bot.action('addAction', (ctx) => ctx.reply('klasdjf'));
-
 
 bot.hears(`Toshkent shahri`, async (ctx, next) => {
     await ctx.replyWithPhoto({ source: './images/Toshkent.png' }, { caption: `Toshkent shahri` })
