@@ -21,15 +21,14 @@ bot.command("start", async (ctx) => {
 
 bot.hears("Ramazon taqvimi", async (ctx) => {
     ctx.reply(
-        'Viloyatni tanlang',
+        'Viloyatni tanlang:',
         Markup.keyboard([
             [`Toshkent shahri`, `Andijon viloyati`],
             [`Farg'ona viloyati`, `Namangan viloyati`],
             [`Sirdaryo viloyati`, `Jizzax viloyati`],
             [`Samarqand viloyati`, `Qashqadaryo viloyati`],
-            [`Surxondaryo viloyati`, `Buxoro viloyati`],
-            [`Navoiy viloyati`, `Xorazm viloyati`],
-            [`Nukus viloyati`]
+            [`Navoiy viloyati`, `Buxoro viloyati`],
+            [`Xorazm viloyati`, `Nukus`]
         ])
             .oneTime()
             .resize()
@@ -81,8 +80,8 @@ bot.hears(`Xorazm viloyati`, async (ctx, next) => {
     await ctx.replyWithPhoto({ source: './images/Xorazm.png' }, { caption: `Xorazm viloyati` })
 })
 
-bot.hears(`Nukus viloyati`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Nukus.png' }, { caption: `Nukus viloyati` })
+bot.hears(`Nukus`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Nukus.png' }, { caption: `Nukus` })
 })
 
 bot.launch()
