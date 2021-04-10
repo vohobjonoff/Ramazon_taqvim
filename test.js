@@ -3,7 +3,7 @@ const Markup = require("telegraf/markup");
 
 require("dotenv/config");
 
-const bot = new Telegraf(process.env.TOKEN);
+const bot = new Telegraf('1609841187:AAGWFtRfQ0iGls19KB1pKOUpp4QWFRAByIw');
 
 bot.command("start", async (ctx) => {
     console.log('bot ishga tushdi')
@@ -23,12 +23,12 @@ bot.hears("Ramazon taqvimi", async (ctx) => {
     ctx.reply(
         'Viloyatni tanlang:',
         Markup.keyboard([
-            [`Toshkent shahri`, `Andijon viloyati`],
-            [`Farg'ona viloyati`, `Namangan viloyati`],
-            [`Sirdaryo viloyati`, `Jizzax viloyati`],
-            [`Samarqand viloyati`, `Qashqadaryo viloyati`],
-            [`Navoiy viloyati`, `Buxoro viloyati`],
-            [`Xorazm viloyati`, `Nukus`]
+            [`Тошкент шаҳри`, `Андижон вилояти`],
+            [`Фарғона вилояти`, `Наманган вилояти`],
+            [`Сирдарё вилояти`, `Жиззах вилояти`],
+            [`Самарқанд вилояти`, `Қашқадарё вилояти`],
+            [`Навоий вилояти`, `Бухоро вилояти`],
+            [`Хоразм вилояти`, `Нукус`]
         ])
             .oneTime()
             .resize()
@@ -36,52 +36,87 @@ bot.hears("Ramazon taqvimi", async (ctx) => {
     );
 });
 
-bot.hears(`Toshkent shahri`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Toshkent.png' }, { caption: `Toshkent shahri` })
+bot.hears(`Тошкент шаҳри`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Toshkent.png' }, {
+        caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+@ramazan_taqvimbot` })
 })
 
-bot.hears(`Andijon viloyati`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Andijon.png' }, { caption: `Andijon viloyati` })
+bot.hears(`Андижон вилояти`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Andijon.png' }, {
+        caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+@ramazan_taqvimbot` })
 })
 
-bot.hears(`Farg'ona viloyati`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: `./images/Fargona.png` }, { caption: `Farg'ona viloyati` })
+bot.hears(`Фарғона вилояти`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: `./images/Fargona.png` }, {
+        caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+@ramazan_taqvimbot viloyati` })
 })
 
-bot.hears(`Namangan viloyati`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Namangan.png' }, { caption: `Namangan viloyati` })
+bot.hears(`Наманган вилояти`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Namangan.png' }, {
+        caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+@ramazan_taqvimbot` })
 })
 
-bot.hears(`Sirdaryo viloyati`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Sirdaryo.png' }, { caption: `Sirdaryo viloyati` })
+bot.hears(`Сирдарё вилояти`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Sirdaryo.png' }, {
+        caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+@ramazan_taqvimbot` })
 })
 
-bot.hears(`Jizzax viloyati`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Jizzax.png' }, { caption: `Jizzax viloyati` })
+bot.hears(`Жиззах вилояти`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Jizzax.png' }, {
+        caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+@ramazan_taqvimbot` })
 })
 
-bot.hears(`Samarqand viloyati`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Samarqand.png' }, { caption: `Samarqand viloyati` })
+bot.hears(`Самарқанд вилояти`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Samarqand.png' }, {
+        caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+@ramazan_taqvimbot` })
 })
 
-bot.hears(`Qashqadaryo viloyati`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Qashqadaryo.png' }, { caption: `Qashqadaryo viloyati` })
+bot.hears(`Қашқадарё вилояти`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Qashqadaryo.png' }, {
+        caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+@ramazan_taqvimbot` })
 })
 
-bot.hears(`Buxoro viloyati`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Buxoro.png' }, { caption: `Buxoro viloyati` })
+bot.hears(`Бухоро вилояти`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Buxoro.png' }, {
+        caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+@ramazan_taqvimbot` })
 })
 
-bot.hears(`Navoiy viloyati`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Navoiy.png' }, { caption: `Navoiy viloyati` })
+bot.hears(`Навоий вилояти`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Navoiy.png' }, {
+        caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+@ramazan_taqvimbot` })
 })
 
-bot.hears(`Xorazm viloyati`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Xorazm.png' }, { caption: `Xorazm viloyati` })
+bot.hears(`Хоразм вилояти`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Xorazm.png' }, {
+        caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+@ramazan_taqvimbot` })
 })
 
-bot.hears(`Nukus`, async (ctx, next) => {
-    await ctx.replyWithPhoto({ source: './images/Nukus.png' }, { caption: `Nukus` })
+bot.hears(`Нукус`, async (ctx, next) => {
+    await ctx.replyWithPhoto({ source: './images/Nukus.png' }, { caption: `2021 йил муборак Рамазон ойининг бошланиши 13 апрель кунига тўғри келади.  Тақвимдаги маълумотлар эҳтиётлик заруратидан, бир кун олдинги вақт ҳам қўшиб кўрсатилган!
+
+    @ramazan_taqvimbot` })
 })
 
 bot.launch()
