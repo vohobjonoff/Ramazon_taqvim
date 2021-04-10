@@ -3,12 +3,11 @@ const Markup = require("telegraf/markup");
 
 require("dotenv/config");
 
-const bot = new Telegraf('1609841187:AAGWFtRfQ0iGls19KB1pKOUpp4QWFRAByIw');
+const bot = new Telegraf(process.env.TOKEN);
 
 bot.command("start", async (ctx) => {
     console.log('bot ishga tushdi')
     const user = ctx.message.from.username ? ctx.message.from.username : ctx.message.from.first_name
-    console.log(user)
     ctx.reply(
         `Assalomu alaykum ${ctx.message.from.first_name}`,
         Markup.keyboard([[`Ramazon taqvimi`]])
