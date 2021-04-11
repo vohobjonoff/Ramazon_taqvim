@@ -3,7 +3,7 @@ const Markup = require("telegraf/markup");
 
 require("dotenv/config");
 
-const bot = new Telegraf(process.env.TOKEN);
+const bot = new Telegraf(1758511919:AAE8-eFv90Y1XlcmbhhZIxvQ5fUE_lSZ0OY);
 
 bot.command("start", async (ctx) => {
     console.log('bot ishga tushdi')
